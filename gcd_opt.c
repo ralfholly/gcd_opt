@@ -92,18 +92,12 @@ gcd_shell(unsigned int int1, unsigned int int2) {
 }
 
 
-
-int main(int argc, char* argv[]) {
+double execute() {
+    int i;
     struct timespec start_time, stop_time;
-    struct timespec start_time2, stop_time2;
-    (void) argc;
-    (void) argv;
-
-    printf("Running %s algorithm. Outer iterations: %d, inner iterations: %d", algorithm_string, OUTER_ITERATIONS, INNER_ITERATIONS);
 
     (void) clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &start_time);
 
-    int i;
     for (i = 0; i < OUTER_ITERATIONS; ++i) {
         int r1 = rand();
         int r2 = rand();
@@ -131,11 +125,14 @@ int main(int argc, char* argv[]) {
     }
 
     (void) clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &stop_time);
-    double runtime = timespec_to_secs(&stop_time) - timespec_to_secs(&start_time);
+    return timespec_to_secs(&stop_time) - timespec_to_secs(&start_time);
+}
 
-    /* Determine overhead */
+double execute_shell() {
+    int i;
+    struct timespec start_time, stop_time;
 
-    (void) clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &start_time2);
+    (void) clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &start_time);
 
     for (i = 0; i < OUTER_ITERATIONS; ++i) {
         int r1 = rand();
@@ -160,10 +157,18 @@ int main(int argc, char* argv[]) {
         volatile unsigned int result2 = gcd_shell(r1, r2);
     }
 
-    (void) clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &stop_time2);
+    (void) clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &stop_time);
+    return timespec_to_secs(&stop_time) - timespec_to_secs(&start_time);
+}
 
-    double overhead = timespec_to_secs(&stop_time2) - timespec_to_secs(&start_time2);
+int main(int argc, char* argv[]) {
+    (void) argc;
+    (void) argv;
 
+    double runtime = execute();
+    double overhead = execute_shell();
+
+    printf("Running %s algorithm. Outer iterations: %d, inner iterations: %d", algorithm_string, OUTER_ITERATIONS, INNER_ITERATIONS);
     printf(", runtime: %0.3f, overhead: %0.12f.\n", runtime - overhead, overhead);
 
     return 0;
