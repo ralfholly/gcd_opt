@@ -1,0 +1,56 @@
+
+Regular GCD algorithm
+---------------------
+cc  -W -Wall -O3 -funroll-all-loops -DALGORITHM=ALG_REGULAR -DARGUMENTS=ARG_NOSWAP -DOUTER_ITERATIONS=1000 -DINNER_ITERATIONS=100000  -c -o gcd_opt.o gcd_opt.c
+cc   gcd_opt.o   -o gcd_opt
+Running REGULAR algorithm. Outer iterations: 1000, inner iterations: 100000, runtime: 11.678, overhead: 0.000023521000.
+
+Optimized GCD algorithm
+-----------------------
+cc  -W -Wall -O3 -funroll-all-loops -DALGORITHM=ALG_OPTIMIZED -DARGUMENTS=ARG_NOSWAP -DOUTER_ITERATIONS=1000 -DINNER_ITERATIONS=100000  -c -o gcd_opt.o gcd_opt.c
+cc   gcd_opt.o   -o gcd_opt
+Running OPTIMIZED algorithm. Outer iterations: 1000, inner iterations: 100000, runtime: 11.998, overhead: 0.000023139000.
+
+Optimized2 GCD algorithm
+------------------------
+cc  -W -Wall -O3 -funroll-all-loops -DALGORITHM=ALG_OPTIMIZED2 -DARGUMENTS=ARG_NOSWAP -DOUTER_ITERATIONS=1000 -DINNER_ITERATIONS=100000  -c -o gcd_opt.o gcd_opt.c
+cc   gcd_opt.o   -o gcd_opt
+Running OPTIMIZED2 algorithm. Outer iterations: 1000, inner iterations: 100000, runtime: 12.029, overhead: 0.000022871000.
+
+
+Regular GCD algorithm
+---------------------
+cc  -W -Wall -O3 -funroll-all-loops -DALGORITHM=ALG_REGULAR -DARGUMENTS=ARG_BIGFIRST -DOUTER_ITERATIONS=1000 -DINNER_ITERATIONS=100000  -c -o gcd_opt.o gcd_opt.c
+cc   gcd_opt.o   -o gcd_opt
+Running REGULAR algorithm. Outer iterations: 1000, inner iterations: 100000, runtime: 11.630, overhead: 0.000027953000.
+
+Optimized GCD algorithm
+-----------------------
+cc  -W -Wall -O3 -funroll-all-loops -DALGORITHM=ALG_OPTIMIZED -DARGUMENTS=ARG_BIGFIRST -DOUTER_ITERATIONS=1000 -DINNER_ITERATIONS=100000  -c -o gcd_opt.o gcd_opt.c
+cc   gcd_opt.o   -o gcd_opt
+Running OPTIMIZED algorithm. Outer iterations: 1000, inner iterations: 100000, runtime: 11.638, overhead: 0.000026952000.
+
+Optimized2 GCD algorithm
+------------------------
+cc  -W -Wall -O3 -funroll-all-loops -DALGORITHM=ALG_OPTIMIZED2 -DARGUMENTS=ARG_BIGFIRST -DOUTER_ITERATIONS=1000 -DINNER_ITERATIONS=100000  -c -o gcd_opt.o gcd_opt.c
+cc   gcd_opt.o   -o gcd_opt
+Running OPTIMIZED2 algorithm. Outer iterations: 1000, inner iterations: 100000, runtime: 11.639, overhead: 0.000027958000.
+
+
+Regular GCD algorithm
+---------------------
+cc  -W -Wall -O3 -funroll-all-loops -DALGORITHM=ALG_REGULAR -DARGUMENTS=ARG_SMALLFIRST -DOUTER_ITERATIONS=1000 -DINNER_ITERATIONS=100000  -c -o gcd_opt.o gcd_opt.c
+cc   gcd_opt.o   -o gcd_opt
+Running REGULAR algorithm. Outer iterations: 1000, inner iterations: 100000, runtime: 11.708, overhead: 0.000028169000.
+
+Optimized GCD algorithm
+-----------------------
+cc  -W -Wall -O3 -funroll-all-loops -DALGORITHM=ALG_OPTIMIZED -DARGUMENTS=ARG_SMALLFIRST -DOUTER_ITERATIONS=1000 -DINNER_ITERATIONS=100000  -c -o gcd_opt.o gcd_opt.c
+cc   gcd_opt.o   -o gcd_opt
+Running OPTIMIZED algorithm. Outer iterations: 1000, inner iterations: 100000, runtime: 12.407, overhead: 0.000027212000.
+
+Optimized2 GCD algorithm
+------------------------
+cc  -W -Wall -O3 -funroll-all-loops -DALGORITHM=ALG_OPTIMIZED2 -DARGUMENTS=ARG_SMALLFIRST -DOUTER_ITERATIONS=1000 -DINNER_ITERATIONS=100000  -c -o gcd_opt.o gcd_opt.c
+cc   gcd_opt.o   -o gcd_opt
+Running OPTIMIZED2 algorithm. Outer iterations: 1000, inner iterations: 100000, runtime: 12.437, overhead: 0.000028229000.
