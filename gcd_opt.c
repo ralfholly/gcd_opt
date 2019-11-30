@@ -8,6 +8,7 @@
 
 #define ALG_REGULAR     22
 #define ALG_OPTIMIZED   33
+#define ALG_OPTIMIZED2  44 
 
 #define ARG_NOSWAP      99
 #define ARG_BIGFIRST    100
@@ -51,7 +52,7 @@ const char algorithm_string[] = "OPTIMIZED";
 unsigned int __attribute__ ((noinline))
 gcd(unsigned int int1, unsigned int int2) {
    unsigned int temp;
- 
+
    for (;;) {
       if ((temp = int1 % int2) == 0) {
          return(int2);
@@ -59,6 +60,20 @@ gcd(unsigned int int1, unsigned int int2) {
       int1 = int2;
       int2 = temp;
    }
+}
+
+#elif ALGORITHM == ALG_OPTIMIZED2
+const char algorithm_string[] = "OPTIMIZED2";
+unsigned int __attribute__ ((noinline))
+gcd(unsigned int int1, unsigned int int2) {
+   unsigned int temp;
+
+   while (int2 != 0) {
+      temp = int2;
+      int2 = int1 % int2;
+      int1 = temp;
+   }
+   return int1;
 }
 
 #else
